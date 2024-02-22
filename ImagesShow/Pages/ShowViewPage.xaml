@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="ImagesShow.Pages.ShowViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ImagesShow.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ImagesShow.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded">
+    <Page.Resources>
+        <Flyout x:Key="confirmDeleteFlyout">
+            <StackPanel>
+                <TextBlock Text="Are You Shure?" />
+                <Button Content="Confirm Delete" Click="DeleteButton_Click" />
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <Image x:Name="Img" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Grid Grid.Row="1" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+            <Grid>
+                <Button x:Name="PlayButton" Click="PlayClick" Background="{x:Null}" HorizontalAlignment="Center">
+                    <SymbolIcon x:Name="ShowControl" Symbol="Play" />
+                </Button>
+                <Button x:Name="DeleteButton"  
+                        HorizontalAlignment="Right" 
+                        Background="{x:Null}" 
+                        Flyout="{StaticResource confirmDeleteFlyout}"
+                        ToolTipService.ToolTip="Delete Show">
+                    <SymbolIcon Symbol="Delete"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

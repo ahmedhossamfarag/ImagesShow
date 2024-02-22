@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="ImagesShow.Pages.ShowsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ImagesShow.Pages"
+    xmlns:models="using:ImagesShow.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded">
+
+    <Grid>
+        <ListView x:Name="ShowsList" ItemsSource="{x:Bind Shows}" SelectionChanged="ListView_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Show">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Video" />
+                        <TextBlock Margin="20,0,0,0" Text="{x:Bind Path=File.Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
